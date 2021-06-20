@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head style="width: 100%">
+    <h1 style="text-align: center">
+        Binary Tree
+    </h1>
+    <h3 style="text-align: center">Open console to see results</h3>
+</head>
+<body>
+<script>
+    class TreeNode {
+        constructor(value) {
+            this.value = value;
+            this.inheritors = {
+                left: null,
+                right: null
+            };
+            this.parent = null;
+        }
+
+        get left() {
+            return this.inheritors.left;
+        }
+
+        set left(node) {
+            this.inheritors.left = node;
+            if (node) {
+                node.parent = this;
+            }
+        }
+
+        get right() {
+            return this.inheritors.right;
+        }
+
+        set right(node) {
+            this.inheritors.right = node;
+            if (node) {
+                node.parent = this;
+            }
+        }
+    }
+
+    const binaryTree = new TreeNode(150);
+    const l = binaryTree.left = new TreeNode(130);
+    const r = binaryTree.right = new TreeNode(170);
+    l.left = new TreeNode(120);
+    l.right = new TreeNode(140);
+    r.left = new TreeNode(160);
+    r.right = new TreeNode(180);
+    console.log(binaryTree);
+</script>
+</body>
+</html>
